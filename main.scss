@@ -1,0 +1,193 @@
+@import '@/lib/reset.scss';
+
+html, body, #root, .container {
+  @include rect(100%, 100%);
+}
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+.loadingbox{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	z-index: 9999;
+	@include background-color(rgba(0,0,0,0.6));
+	@include text-color(#fff);
+	@include square(1rem);
+	@include flex-direction(column);
+	@include justify-content();
+	@include align-items();
+		div {
+		width: 30px;
+		height: 30px;
+		background-color: #67CF22; 
+		border-radius: 50%;
+		display: inline-block;
+		-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+		animation: bouncedelay 1.4s infinite ease-in-out;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+		&.bounce1 {
+		-webkit-animation-delay: -0.32s;
+		animation-delay: -0.32s;
+	}
+	 
+	 &.bounce2 {
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
+	}
+
+
+}
+.container {
+  @include flexbox();
+  @include flex-direction(column);
+  
+  .main {
+      @include flex();
+      @include rect(100%, auto);
+      @include flexbox();
+      @include flex-direction(column);
+      header {
+        @include rect(100%, 0.45rem);
+        @include background-color(#f66);
+        @include flexbox();
+				     
+        .left, .center, .right{
+          @include flexbox();
+          @include flex-direction(column);
+          @include justify-content();
+          @include align-items();
+        }
+
+        .left{
+          @include rect(0.3rem, 100%);
+
+        }
+        .center{
+          @include flex();
+          @include rect(auto, 100%);
+        }
+        .right{
+          @include rect(0.3rem, 100%);
+        }
+      }
+      .content{
+        @include flex();
+        @include rect(100%, auto);
+        @include overflow();
+        img{
+        	@include rect(1rem, 1rem);
+        	@include margin(0.05rem);
+        }
+        .prolist {
+          
+          li{
+            @include rect(100%, 1rem);
+            @include border(0 0 1px 0, #ccc);
+            @include flexbox();
+						@include text-color(#000)
+            img{
+              @include rect(0.9rem, 0.9rem);
+              @include margin(0.05rem);
+            }
+            
+            .proinfo{
+              @include flex();
+							input{
+								@include rect(0.8rem,0.3rem);
+								@include text-align(center);
+							}
+							button{
+								@include square(0.3rem);
+							}
+
+            }					
+          }
+        }
+				&.kindContent{
+					@include flexbox();
+					.kindMenu{
+						
+						@include rect(1rem, 100%);
+						@include border(0 1px 0 0,#ccc);
+						@include overflow();
+						li{
+							@include rect(100%, 0.5rem);
+							@include border(0 0 1px 0, #ccc);
+							@include flexbox();
+							@include flex-direction(column);
+							@include justify-content();
+							@include align-items();
+							a{
+								@include text-color(#555)
+								&.active{
+									@include text-color(#f66)
+								}
+							}
+							
+						}
+					}
+					.kindList{
+						@include flex();
+						@include rect(auto, 100%);
+						@include overflow()
+					}
+					
+				}
+      }
+  }
+  footer{
+    @include rect(100%, 0.5rem);
+    @include background-color(#ccc);
+    
+      ul{
+        @include rect(100%, 100%);
+        @include flexbox();
+          li{
+            @include flex();
+            @include rect(auto, 100%);
+            @include flexbox();
+            @include flex-direction(column);
+            @include justify-content();
+            @include align-items();
+            
+            a {
+              @include text-color(#333);
+              &.active{
+                @include text-color(#f66);
+              }
+            }
+          }
+      }
+  }
+}
+.space-carousel {
+  padding: 16px;
+  background: #DEF1E5;
+  overflow: hidden;
+}
+.am-search {
+  border-bottom: 1px solid #ddd;
+	width:100%;
+}
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 30px 0 18px 0;
+}
